@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Menu Item</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="add-container">
+        <h1>Add New Menu Item</h1>
+
+        <form method="POST" enctype="multipart/form-data">  <!-- File upload support -->
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renders the form fields in <p> tags -->
+            <button type="submit" class="add-btn">Add Item</button>
+            <a href="{% url 'index' %}" class="back-btn">Back to Menu</a>
+        </form>
+
+       
+    </div>
+</body>
+</html>

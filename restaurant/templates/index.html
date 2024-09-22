@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- connect style.css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Madu Restaurant</title>
+</head>
+
+<body>
+
+    <!-- hero section begin -->
+    <div id="hero">
+        <div id="hero_content">
+            <h1>Madu Restaurant</h1>
+            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+            <a href="#menu">Menu</a>
+        </div>
+    </div>
+
+    <!-- hero section End -->
+
+    <!-- header section -->
+    <div id="header">
+        <nav id="navbar">
+            <h1>Madu Resturant</h1>
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+            </ul>
+            <div id="phone">
+                <a href="tel:++91234567892">+91234567892</a>
+            </div>
+        </nav>
+        <div id="mobile_menu">
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- header section end -->
+
+    <!-- Menu Section begin -->
+
+    <div id="menu">
+        <h1 id="section">Menu</h1>
+        <div id="menu_row">
+            <div id="menu_col">
+                <h2>Breakfast</h2>
+
+                <div class="box">
+                    {% for item in breakfast_items %}
+                    <div id="image">
+                        <a href="{% url 'detail' item.id %}"><img src="{{ item.image.url }}" alt="{{ item.name }}"></a>
+                    </div>
+                    <div>
+                        <h3>{{ item.name }} </h3>
+                        <h4>${{ item.price }}</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div id="menu_col">
+                <h2>Lunch</h2>
+                <div class="box">
+                    {% for item in lunch_items %}
+                    <div id="image">
+                        <a href="{% url 'detail' item.id %}"><img src="{{ item.image.url }}" alt="{{ item.name }}"></a>
+                    </div>
+                    <div>
+                        <h3>{{ item.name }}</h3>
+                        <h4>${{ item.price }}</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div id="menu_col">
+                <h2>Dinner</h2>
+                <div class="box">
+                    {% for item in dinner_items %}
+
+                    <div id="image">
+                        <a href="{% url 'detail' item.id %}"><img src="{{ item.image.url }}" alt="{{ item.name }}"></a>
+                    </div>
+                    <div>
+                        <h3>{{ item.name }} </h3>
+                        <h4>${{ item.price }} </h4>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Section end -->
+
+    <!-- Chef Section begin -->
+
+    <div id="chef">
+        <h1 id="section">Chef</h1>
+        <div id="chef_row">
+            {% for chef in chefs %}
+            <div class="chef_col">
+
+                <div id="img">
+                    <img src="{{ chef.image.url }}" alt="{{ chef.name }}">
+                </div>
+                <div>
+                    <h4>{{ chef.name }}</h4>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Chef Section End -->
+
+    <!-- About Section begin -->
+
+    <div id="about">
+        <h1 id="section">About</h1>
+        <div id="about_row">
+            <div class="about_col">
+                <h1>About Us</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Temporibus rem voluptas tenetur natus dolore delectus,
+                    aut soluta. Ratione, ducimus. Corporis ab esse ad iste sint,
+                    fugiat similique sequi ipsa assumenda cum architecto, cupiditate
+                    rem! Hic, quis deleniti aliquid facilis, dicta facere enim eligendi,
+                    adipisci quos quidem dolorem esse ipsum. Numquam!</p>
+            </div>
+            <div class="about_col">
+                <div id="about_img">
+                    <img src="{% static 'images/about.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section End -->
+
+
+
+    <!-- footer section begin -->
+    <div id="footer">
+        <div>
+            <h5>Copyright &copy;2022 | <a href="https://github.com/KanchanCS">Kanchan Github</a></h5>
+        </div>
+        <div id="top">
+            <a href="#header"><i class="fas fa-chevron-circle-up"></i></a>
+        </div>
+    </div>
+
+    <!-- footer section end -->
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit {{ item.name }} - Menu Item</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="edit">
+    <div class="edit_container">
+        <h1>Edit {{ item.name }}</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renders the form fields in <p> tags -->
+
+            <button type="submit" class="btn">Save Changes</button>
+            <a href="{% url 'detail' item.id %}" class="btn-back">Back to {{ item.name }}'s Detail Page</a>
+        </form>
+
+
+    </div>
+</body>
+
+</html>
