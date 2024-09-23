@@ -190,6 +190,14 @@ header section */
     border-radius: 50%;
     padding: 5px;
     border: 2px solid orange;
+    transition: transform 1s;
+    transition-timing-function: ease-out;
+}
+#image:hover{
+    transform: scale(0.9);
+    border: 5px solid magenta;
+    border-top-color: navy;
+    border-bottom-color: black;
 }
 
 #image img {
@@ -197,6 +205,7 @@ header section */
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+
 }
 
 .box {
@@ -223,13 +232,21 @@ header section */
     text-align: center;
     padding: 10px;
     margin: 5px;
+    transition: transform 2s;
+    transition-timing-function:ease-out ;
+}
+.chef_col:hover{
+    transform: scale(1.50);
 }
 
 #img {
     width: 200px;
     height: 250px;
     margin: auto;
+   
+
 }
+
 
 #img img {
     width: 100%;
