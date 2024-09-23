@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import MenuItem, Chef, Contact
+from .models import MenuItem, Chef, Contact,Order
 from django.contrib import messages
 from django.urls import reverse
-from .forms import MenuItemForm
+from .forms import MenuItemForm,OrderForm
 # Create your views here.
 
 # View for the homepage (with menu and chef sections)
@@ -46,7 +46,19 @@ def contact(request):
 def detail_item(request, item_id):
     # Fetch the menu item by id
     item = MenuItem.objects.get(id=item_id)
-    return render(request, 'details_item.html',{'item':item})
+    
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.menu_item = item  # Link the order to the selected menu item
+            order.save()
+            return redirect('order', order_id=order.id)  # Redirect to a success page after ordering
+    else:
+        form = OrderForm()
+
+    
+    return render(request, 'details_item.html',{'item': item, 'form': form})
     
 def edit_item(request, item_id):
     item = MenuItem.objects.get(id=item_id)
@@ -71,7 +83,6 @@ def delete_item(request, item_id):
     return render(request, 'delete_item.html', {'item': item})
 
 def add_item(request):
-
     if request.method == 'POST':
         form = MenuItemForm(request.POST, request.FILES)  # Handle file uploads (e.g., images)
         if form.is_valid():
@@ -82,3 +93,7 @@ def add_item(request):
     
     return render(request, 'add_item.html', {'form': form})
 
+
+def order_success(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(request, 'order.html', {'order': order})
