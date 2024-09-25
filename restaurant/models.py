@@ -32,3 +32,19 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"Message from {self.name} - {self.subject}"
+    
+
+class Order(models.Model):
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    customer_name = models.CharField(max_length=100)
+    customer_email = models.EmailField()
+    customer_phone = models.CharField(max_length=15)
+    customer_address = models.TextField()  # New field for the address
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Order by {self.customer_name} for {self.menu_item.name}"
+    
+    def get_total_price(self):
+        return self.menu_item.price * self.quantity

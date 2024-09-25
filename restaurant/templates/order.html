@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Thank you, {{ order.customer_name }}!</h1>
+        <p>Your order for <strong>{{ order.menu_item.name }}</strong> has been placed successfully.</p>
+        <p>Quantity: {{ order.quantity }}</p>
+        <p>Total Price: ${{ order.get_total_price }}</p>
+        <p>We will contact you at {{ order.customer_phone }} or via email at {{ order.customer_email }}.</p>
+        <p>Delivery Address: {{ order.customer_address }}</p>
+
+        <a href="{% url 'index' %}">Back to Menu</a>
+    </div>
+</body>
+</html>

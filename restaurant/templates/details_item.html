@@ -48,6 +48,13 @@
                 <h1>{{ item.name }}</h1>
                 <h2>Price: ${{ item.price }}</h2>
                 <p>{{ item.description }}</p>
+                <hr>
+                <h3>Place an Order</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}  <!-- Display the order form with fields for name, email, phone, address, and quantity -->
+                    <button type="submit" class="btn btn-primary">Order Now</button>
+                </form>
                 <a class="back-btn" href="{% url 'index' %}">Back to Menu</a>
             </div>
         </div>
