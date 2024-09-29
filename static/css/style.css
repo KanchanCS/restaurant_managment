@@ -83,13 +83,13 @@ header section */
     top: 0;
     width: 100vw;
     height: 70px;
-    line-height: 70px;
+    line-height: 60px;
 }
 
 #navbar {
     display: flex;
     justify-content: space-around;
-    background: rgb(0, 0, 0, 0.5);
+    background: rgba(2, 2, 2, 0.825);
 }
 
 #navbar h1 {
@@ -302,7 +302,7 @@ header section */
 
 #contact {
     padding: 25px 0 25px 0;
-    
+   display: grid;
     
 }
 

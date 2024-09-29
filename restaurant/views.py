@@ -97,3 +97,7 @@ def add_item(request):
 def order_success(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'order.html', {'order': order})
+
+def blog(request):
+    return render(request, "blog.html")
+ 
