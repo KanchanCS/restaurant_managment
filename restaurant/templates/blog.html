@@ -26,22 +26,68 @@
                 <li><a href="{% url 'contact' %}" target="_blank"">Contect</a></li>
             </ul>
             <div id="phone">
-                <a href="tel:++91234567892">+91234567892</a>
-            </div>
-        </nav>
-        <div id="mobile_menu">
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="">Menu</a></li>
-                <li><a href="">Chef</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="{% url 'contact' %}" target="_blank"">Contect</a></li>
+                        <a href="tel:++91234567892">+91234567892</a>
+    </div>
+    </nav>
+    <div id="mobile_menu">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="">Menu</a></li>
+            <li><a href="">Chef</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="{% url 'contact' %}" target="_blank"">Contect</a></li>
             </ul>
         </div>
     </div>
 
     <!-- header section end -->
- <h1>blog</h1>
+ 
+       <div class=" blog-container">
+                    <header class="header-container">
+                        <h1 class="header-title">Random Blog</h1>
+                     
+                    </header>
+
+                    <main class="main-container">
+                        {% for blog in blogs %}
+
+                        <div class="card-container">
+                            <a href="{% url 'blog_detail' blog.id %}" class="img">
+                                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="card-img" loading="lazy">
+                            </a>
+                            <div class="card-title-container">
+                                <a href="{% url 'blog_detail' blog.id %}">
+                                    <h2 class="card-title">{{ blog.title }}</h2>
+
+                                </a>
+                                <p class="card-desc">{{ blog.content|truncatewords:10 }}</p>
+                            </div>
+
+
+                            <div class="card-footer">
+                                <div class="author-container">
+                                    <div class="author-img">
+                                        <img src="https://picsum.photos/200?random=1" alt="autor-img"
+                                            class="img-author">
+                                    </div>
+                                    <div class="author-info">
+                                        <span class="author-name">{{ blog.author }}</span>
+                                        <span class="author-date">{{ blog.date_posted|date:"M d, Y" }}</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <span>{{ blog.category }}</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        {% endfor %}
+
+                    </main>
+
+    </div>
+
 
     <!-- footer section begin -->
     <div id="footer">

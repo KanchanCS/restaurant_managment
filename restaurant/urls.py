@@ -9,5 +9,7 @@ urlpatterns = [
     path('delete/<int:item_id>/', views.delete_item, name='delete'),
     path('add', views.add_item, name='add'),
     path('order-success/<int:order_id>/', views.order_success, name='order'),
-    path('blog',views.blog,name="blog")
+    path('blog', views.blog_post, name='blog'),
+    path('<int:blog_id>/', views.blog_detail, name='blog_detail'),
+    path('add/', views.add_blog, name='add_blog'),
 ]
