@@ -719,13 +719,14 @@ a{
 }
 /* details blog */
 .detail-blog{
-    border: 2px solid rgb(232, 226, 226);
-    box-shadow: 2px solid rgb(192, 11, 11);
+    border: 2px solid rgb(240, 228, 228);
     margin:120px;
     justify-content: center;
     align-items: center;
     min-width: 900px;
     height:fit-content;
+  
+    
 
 }
 .detail-blog h1{
