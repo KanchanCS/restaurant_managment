@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-    <div class="container">
+
+<!-- hero section End -->
+
+
+    <div class="add-container">
         <h1>Add New Blog Post</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="add-btn">Add Blog</button>
+            <a href="{% url 'blog' %}" class="back-btn mt-3">Back to Blog</a>
         </form>
-        <a href="{% url 'blog' %}" class="btn btn-secondary mt-3">Back to Blog</a>
+        
     </div>
     
 </body>

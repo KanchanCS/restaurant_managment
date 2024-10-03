@@ -8,12 +8,55 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-    <div class="container">
+   
+
+    <!-- header section -->
+    <div id="header">
+        <nav id="navbar">
+            <h1>Madu Resturant</h1>
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+                <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+                
+            </ul>
+            <div id="phone">
+                <a href="tel:++91234567892">+91234567892</a>
+            </div>
+        </nav>
+        <div id="mobile_menu">
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+                <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- header section end -->
+    <div class="container detail-blog">
         <h1>{{ blog.title }}</h1>
         <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid">
-        <p>By {{ blog.author }} on {{ blog.date_posted|date:"M d, Y" }}</p>
-        <p>{{ blog.content }}</p>
-        <a href="{% url 'blog' %}" class="btn btn-primary">Back to Blog</a>
+        <div class="author-detail">
+            <img src="https://picsum.photos/200?random=1" alt="autor-img"
+                class="img-author">
+                <p>By {{ blog.author }}
+                    <span> On {{ blog.date_posted|date:"M d, Y" }}</span>
+                </p>
+
+        </div>
+                <p class="details-content">{{ blog.content }}</p><br>
+        <a href="{% url 'blog' %}" class="btn-back-details">Back to Blog</a>
     </div>
 </body>
 </html>

@@ -7,11 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Contact</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 
 <body>
+
+
 
     <!-- header section -->
     <div id="header">
@@ -23,22 +25,30 @@
                 <li><a href="{% url 'blog' %}">Blog</a></li>
                 <li><a href="#chef">Chef</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="{% url 'contact' %}" target="_blank"">Contect</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+                <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+                
             </ul>
             <div id="phone">
-                        <a href="tel:++91234567892">+91234567892</a>
-    </div>
-    </nav>
-    <div id="mobile_menu">
-        <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">Chef</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="{% url 'contact' %}" target="_blank"">Contect</a></li>
+                <a href="tel:++91234567892">+91234567892</a>
+            </div>
+        </nav>
+        <div id="mobile_menu">
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+                <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
             </ul>
         </div>
     </div>
+
+    <!-- header section end -->
 
     <!-- header section end -->
  
