@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+
+
+
+    <!-- header section -->
+    <div id="header">
+        <nav id="navbar">
+            <h1>Madu Resturant</h1>
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+                <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+                
+            </ul>
+            <div id="phone">
+                <a href="tel:++91234567892">+91234567892</a>
+            </div>
+        </nav>
+        <div id="mobile_menu">
+            <ul>
+                <li><a href="{% url 'index' %}" id="home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'add' %}">AddItem</a></li>
+                <li><a href="{% url 'contact' %}" target="_blank">Contect</a></li>
+                <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- header section end -->
+
+    <!-- header section end -->
+ 
+       <div class=" blog-container">
+                    <header class="header-container">
+                        <h1 class="header-title">Random Blog</h1>
+                     
+                    </header>
+
+                    <main class="main-container">
+                        {% for blog in blogs %}
+
+                        <div class="card-container">
+                            <a href="{% url 'blog_detail' blog.id %}" class="img">
+                                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="card-img" loading="lazy">
+                            </a>
+                            <div class="card-title-container">
+                                <a href="{% url 'blog_detail' blog.id %}">
+                                    <h2 class="card-title">{{ blog.title }}</h2>
+
+                                </a>
+                                <p class="card-desc">{{ blog.content|truncatewords:10 }}</p>
+                            </div>
+
+
+                            <div class="card-footer">
+                                <div class="author-container">
+                                    <div class="author-img">
+                                        <img src="https://picsum.photos/200?random=1" alt="autor-img"
+                                            class="img-author">
+                                    </div>
+                                    <div class="author-info">
+                                        <span class="author-name">{{ blog.author }}</span>
+                                        <span class="author-date">{{ blog.date_posted|date:"M d, Y" }}</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <span>{{ blog.category }}</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        {% endfor %}
+
+                    </main>
+
+    </div>
+
+
+    <!-- footer section begin -->
+    <div id="footer">
+        <div>
+            <h5>Copyright &copy;2022 | <a href="https://github.com/KanchanCS">Kanchan Github</a></h5>
+        </div>
+        <div id="top">
+            <a href="#header"><i class="fas fa-chevron-circle-up"></i></a>
+        </div>
+    </div>
+
+    <!-- footer section end -->
+</body>
+
+</html>

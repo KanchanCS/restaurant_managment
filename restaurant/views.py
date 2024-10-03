@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import MenuItem, Chef, Contact,Order
+from .models import MenuItem, Chef, Contact,Order,BlogPost
 from django.contrib import messages
 from django.urls import reverse
-from .forms import MenuItemForm,OrderForm
+from .forms import MenuItemForm,OrderForm,BlogPostForm
 # Create your views here.
 
 # View for the homepage (with menu and chef sections)
@@ -97,3 +97,21 @@ def add_item(request):
 def order_success(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'order.html', {'order': order})
+
+def blog_post(request):
+    blogs = BlogPost.objects.all().order_by('-date_posted')
+    return render(request, 'blog.html', {'blogs': blogs})
+ 
+def blog_detail(request, blog_id):
+    blog = get_object_or_404(BlogPost, id=blog_id)
+    return render(request, 'blog_detail.html', {'blog': blog})
+
+def add_blog(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('blog')
+    else:
+        form = BlogPostForm()
+    return render(request, 'add_blog.html', {'form': form})

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 class MenuItem(models.Model):
     CATEGORY_CHOICES =[
@@ -48,3 +48,17 @@ class Order(models.Model):
     
     def get_total_price(self):
         return self.menu_item.price * self.quantity
+
+  
+class BlogPost(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to='blog_images/')
+    author = models.CharField(max_length=100)
+    date_posted = models.DateTimeField(default=timezone.now)
+    category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title
+  
+    

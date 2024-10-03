@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Delete {{ item.name }} - Confirm</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
    
@@ -45,15 +44,19 @@
     </div>
 
     <!-- header section end -->
-    <div class="container">
-        <h1>Are you sure you want to delete {{ item.name }}?</h1>
-        <p>This action cannot be undone.</p>
+    <div class="container detail-blog">
+        <h1>{{ blog.title }}</h1>
+        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid">
+        <div class="author-detail">
+            <img src="https://picsum.photos/200?random=1" alt="autor-img"
+                class="img-author">
+                <p>By {{ blog.author }}
+                    <span> On {{ blog.date_posted|date:"M d, Y" }}</span>
+                </p>
 
-        <form method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Yes, Delete</button>
-            <a href="{% url 'detail' item.id %}" class="btn btn-back">No, Go Back</a>
-        </form>
+        </div>
+                <p class="details-content">{{ blog.content }}</p><br>
+        <a href="{% url 'blog' %}" class="btn-back-details">Back to Blog</a>
     </div>
 </body>
 </html>
