@@ -38,3 +38,7 @@ https://github.com/user-attachments/assets/377485cc-3751-4ea7-bd8e-328b19c678df
   python manage.py runserver
   ```
 * Open your browser and go to http://127.0.0.1:8000/ to view the website.
+
+ ## Usage
+ * Admin Panel: Log in at http://127.0.0.1:8000/admin with your superuser credentials to manage  menu items, blog posts, and orders.
+ 
