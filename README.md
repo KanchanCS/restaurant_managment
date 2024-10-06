@@ -41,4 +41,5 @@ https://github.com/user-attachments/assets/377485cc-3751-4ea7-bd8e-328b19c678df
 
  ## Usage
  * Admin Panel: Log in at http://127.0.0.1:8000/admin with your superuser credentials to manage  menu items, blog posts, and orders.
- 
+ * Blog: Add blog posts in the admin panel or directly from the frontend form (if authenticated).
+ * Order Management: Customers can place orders from the menu, and admins can view and manage them in the dashboard.
