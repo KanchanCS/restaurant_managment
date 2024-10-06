@@ -470,13 +470,13 @@ h3 {
 .edit_container {
     
     height: 500px;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 30px;
-    background-color:rgb(185, 181, 181);
+    background-color:rgb(240, 237, 237);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(20, 20, 20, 0.838);
-    text-align: center;
+   
     margin-top: 50px;
 }
 
@@ -501,7 +501,8 @@ form .btn {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 25px;
-    width: 280px;
+    font-size: 0.75rem;
+    width: 200px;
 
 }
 
@@ -515,6 +516,7 @@ a.btn-back {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 0.75rem;
     width: 200px;
 }
 
@@ -525,38 +527,39 @@ a.btn-back:hover {
 /* Add item */
 .add-container, h1{
     font-family: cursive;
+  
 }
 .add-container{
-    height: 500px;
-    max-width: 700px;
+    height: 550px;
+    max-width: 500px;
     margin: 0 auto;
     margin-top: 400px;
     padding: 30px;
-    background-color:rgb(185, 182, 182);
+    background-color:rgb(242, 238, 238);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(10, 10, 10, 0.892);
-    text-align: center;
+  
     margin-top: 50px;
     
 }
 input{
     height: 25px;
-    width: 400px;
+    width: 300px;
     border: none;
     background: none;
     outline: none;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(99, 96, 96);
     margin-top: 30px;
    
  
 }
 form textarea{
     height: 25px;
-    width: 400px;
+    width: 300px;
     background:none;
     border: none;
     outline: none;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(99, 95, 95);
     margin-top: 30px;
    
 }
@@ -572,7 +575,7 @@ form textarea{
     text-decoration: none; /* Remove underline for <a> */
     font-size: 16px;
     cursor: pointer;
-    width: 250px;
+    width: 200px;
     margin-top: 50px;
   
 }
