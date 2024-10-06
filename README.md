@@ -16,8 +16,25 @@ https://github.com/user-attachments/assets/377485cc-3751-4ea7-bd8e-328b19c678df
     ```python
     venv\Scripts\activate
     ```
- -On macOS/Linux:
+ - On macOS/Linux:
     ```python
     source venv/bin/activate
     ```
-
+* Install dependencies:
+  ```python
+  pip install -r requirements.txt
+  ```
+* Run migrations to set up the database:
+  ```python
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
+* Create a superuser to access the Django admin panel:
+  ```python
+  python manage.py createsuperuser
+  ```
+* Start the development server:
+  ```python
+  python manage.py runserver
+  ```
+* Open your browser and go to http://127.0.0.1:8000/ to view the website.
