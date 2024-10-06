@@ -10,4 +10,14 @@ https://github.com/user-attachments/assets/377485cc-3751-4ea7-bd8e-328b19c678df
 * Create a virtual environment:
   ```python
    python -m venv venv
-```
+  ```
+* Activate the virtual environment:
+  - On Windows:
+    ```python
+    venv\Scripts\activate
+    ```
+ -On macOS/Linux:
+    ```python
+    source venv/bin/activate
+    ```
+
